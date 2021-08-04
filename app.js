@@ -15,12 +15,23 @@ function app(people){
       searchResults = searchByName(people);
       break;
     case 'no':
-      // TODO: search by traits
-      break;
+      let filterOne = prompt("Please select an option to filter by. Enter '1' for Eye Color; Select '2' for Occupation; Select '3' for Gender.");
+      if (filterOne = "1"){
+      let eyeColorFilter = prompt("Please enter an eye color to filter by.")
+      let filterEyeColor = data.filter(function ( eyes ) {
+        if (eyes === eyeColorFilter){
+          return true;
+        } 
+        else {
+          return false;
+        } 
+      });
+    }
       default:
     app(people); // restart app
       break;
   }
+
   
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
   mainMenu(searchResults, people);
@@ -133,7 +144,7 @@ function promptFor(question, valid){
   do{
     response = prompt(question).trim();
     isValid = valid(response);
-  } while(response !== ""  ||  isValid === false)
+  } while(response === ""  ||  isValid === false)
   return response
 }
 
