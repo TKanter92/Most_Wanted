@@ -26,7 +26,7 @@ function app(people){
           return false;
         } 
       });
-    }
+    } 
       default:
     app(people); // restart app
       break;
