@@ -15,55 +15,63 @@ function app(people){
       searchResults = searchByName(people);
       break;
     case 'no': 
-    let runSearchOpts = prompt("Please select an option to filter by; Type '1' for Eye Color, '2' for Occupation, or '3' for Gender.");
+    let runSearchOpts = prompt("Please select an option to filter by; Type 1 for Eye Color, 2 for Occupation, or 3 for Gender.");
         if (runSearchOpts == "1"){
-        eyeColors()
+        let peopleByEyeColor = eyeColors(people)
+        console.log(peopleByEyeColor);
         }
         else if (runSearchOpts == "2"){
-        filterJob()
+        let peopleByOccupations = filterJobs(people)
+        console.log(peopleByOccupations);
         }
         else if (runSearchOpts == "3"){
-        genderFinder()
+        let peopleByGender = genderFilter(people)
+        console.log(peopleByGender);
         }
     default:
     app(people); // restart app
     break;
   }
 
- function eyeColors(eye){
+ function eyeColors(people){
   let eyes = prompt("Please enter an eye color to filter by.")
-    eye = people.filter(function (person) {
-      if (eyes.eyeColor === eye){
-        return true;
-      } 
-      else {
-        return false;
-      } 
-    }),
-
-  function filterJob(occupations){
-    let job = prompt("Please enter the occupation in which the person you are searching for works in.")
-    let occupations = people.filter(function (person) {
-      if (job.occupation === occupations){
-        return true;
-      }
-      else {
-        return false;
-      }
-    });
-
-  function genderFinder(findGender){
-    let genderSelect = prompt("Please enter the gender associated with the person you are searching for.")
-    let findGender = people.filter(function (person) {
-      if (genderSelect.gender === findGender){
-        return true;
-      }
-      else {
-        return false;
-      }
-    });
-  }
+  let peopleByEyeColorArray = people.filter(function (person) {
+    if (person.eyeColor === eyes){
+      return true;
+    } 
+    else {
+      return false;
+    } 
+  });
+  return peopleByEyeColorArray;
 }
+
+ function filterJobs(people){
+  let job = prompt("Please enter the occupation in which the person you are searching for works in.")
+  let peopleByOccupationArray = people.filter(function (person) {
+    if (person.occupation === job){
+      return true;
+    }
+    else {
+      return false;
+    }
+  });
+  return peopleByOccupationArray;
+}
+
+  function genderFilter(people){
+    let findGender = prompt("Please enter the gender associated with the person you are searching for.")
+    let peopleByGenderArray = people.filter(function (person) {
+      if (person.gender === findGender){
+        return true;
+      }
+      else {
+        return false;
+      }
+    });
+     return peopleByGenderArray;
+  }
+
 
   
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
@@ -202,6 +210,6 @@ function autoValid(input){
 function customValidation(input){
   
 }
-}
+
 
 //#endregion
