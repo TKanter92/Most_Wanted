@@ -14,23 +14,56 @@ function app(people){
     case 'yes':
       searchResults = searchByName(people);
       break;
-    case 'no':
-      let filterOne = prompt("Please select an option to filter by. Enter '1' for Eye Color; Select '2' for Occupation; Select '3' for Gender.");
-      if (filterOne = "1"){
-      let eyeColorFilter = prompt("Please enter an eye color to filter by.")
-      let filterEyeColor = data.filter(function ( eyes ) {
-        if (eyes === eyeColorFilter){
-          return true;
-        } 
-        else {
-          return false;
-        } 
-      });
-    } 
-      default:
+    case 'no': 
+    let runSearchOpts = prompt("Please select an option to filter by; Type '1' for Eye Color, '2' for Occupation, or '3' for Gender.");
+        if (runSearchOpts == "1"){
+        eyeColors()
+        }
+        else if (runSearchOpts == "2"){
+        filterJob()
+        }
+        else if (runSearchOpts == "3"){
+        genderFinder()
+        }
+    default:
     app(people); // restart app
-      break;
+    break;
   }
+
+ function eyeColors(eye){
+  let eyes = prompt("Please enter an eye color to filter by.")
+    eye = people.filter(function (person) {
+      if (eyes.eyeColor === eye){
+        return true;
+      } 
+      else {
+        return false;
+      } 
+    }),
+
+  function filterJob(occupations){
+    let job = prompt("Please enter the occupation in which the person you are searching for works in.")
+    let filterOccupation = people.filter(function (person) {
+      if (job.occupation === filterOccupation){
+        return true;
+      }
+      else {
+        return false;
+      }
+    });
+
+  function genderFinder(genders){
+    let gender = prompt("Please enter the gender associated with the person you are searching for.")
+    let filterGender = people.filter(function (person) {
+      if (gender.gender === filterGender){
+        return true;
+      }
+      else {
+        return false;
+      }
+    });
+  }
+}
 
   
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
@@ -168,6 +201,7 @@ function autoValid(input){
 //can be used for things like eye color validation for example.
 function customValidation(input){
   
+}
 }
 
 //#endregion
