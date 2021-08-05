@@ -43,8 +43,8 @@ function app(people){
 
   function filterJob(occupations){
     let job = prompt("Please enter the occupation in which the person you are searching for works in.")
-    let filterOccupation = people.filter(function (person) {
-      if (job.occupation === filterOccupation){
+    let occupations = people.filter(function (person) {
+      if (job.occupation === occupations){
         return true;
       }
       else {
@@ -52,10 +52,10 @@ function app(people){
       }
     });
 
-  function genderFinder(genders){
-    let gender = prompt("Please enter the gender associated with the person you are searching for.")
-    let filterGender = people.filter(function (person) {
-      if (gender.gender === filterGender){
+  function genderFinder(findGender){
+    let genderSelect = prompt("Please enter the gender associated with the person you are searching for.")
+    let findGender = people.filter(function (person) {
+      if (genderSelect.gender === findGender){
         return true;
       }
       else {
