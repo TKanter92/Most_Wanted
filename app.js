@@ -23,10 +23,26 @@ function app(people){
           if (afterEyeColorSearch == "a"){
             let occupationFilter = filterJobs(peopleByEyeColor);
             console.log(occupationFilter);
+            let finalSearchInput = prompt("Would you like to further your search by searching by gender? Please enter 'yes' or 'no'.")
+              if (finalSearchInput == "yes"){
+                let finalGenderSearch = genderFilter(occupationFilter);
+                  displayPerson(finalGenderSearch);
+              }
+              else if (finalSearchInput == "no"){
+                displayPeople(occupationFilter);
+              }
           }
           else if (afterEyeColorSearch == "b"){
-            let genderIdentFilter = filterGender(peopleByEyeColor);
+            let genderIdentFilter = genderFilter(peopleByEyeColor);
             console.log(genderIdentFilter);
+            let finalSearchInput = prompt("Would you like to further your search by searching by occupation? Please enter 'yes' or 'no'.")
+            if (finalSearchInput == "yes"){
+              let finalJobSearch = filterJobs(genderIdentFilter);
+              displayPerson(finalJobSearch);
+            }
+            else if (finalSearchInput == "no"){
+              displayPeople(genderIdentFilter);
+            }
           }
         }
         else if (runSearchOpts == "2"){
@@ -36,10 +52,26 @@ function app(people){
           if (afterJobSearch == "a"){
             let eyeColorFilter = eyeColors(peopleByOccupations);
             console.log(eyeColorFilter);
+            let finalSearchInput = prompt("Would you like to further your search by searching by gender? Please enter 'yes' or 'no'.")
+            if (finalSearchInput == "yes"){
+              let finalGenderSearch = genderFilter(occupationFilter);
+                  diplayPerson(finalGenderSearch);
+            }
+            else if (finalSearchInput == "no"){
+              displayPeople(eyeColorFilter);
+            }
           }
           else if (afterJobSearch == "b"){
             let filterByGender = genderFilter(peopleByOccupations);
             console.log(filterByGender);
+            let finalSearchInput = prompt("Would you like to further your search by searching by eye color? Please enter 'yes' or 'no'.")
+            if (finalSearchInput == "yes"){
+              let finalEyeColorSearch = eyeColors(filterByGender);
+              displayPerson(finalEyeColorSearch);
+            }
+            else if (finalSearchInput == "no"){
+              displayPeople(filterByGender);
+            }
           }
         }
         else if (runSearchOpts == "3"){
@@ -49,10 +81,26 @@ function app(people){
           if (afterGenderSearch == "a"){
             let eyeColorFilter = eyeColors(peopleByGender);
             console.log(eyeColorFilter);
+            let finalJobSearch = prompt("Would you like to further your search by searching by occupation? Please enter 'yes' or 'no'.")
+            if (finalJobSearch == "yes"){
+              let finalOccupation = filterJobs(eyeColorFilter);
+              displayPerson(finalOccupation);
+            }
+            else if (finalJobSearch == "no"){
+              displayPeople(eyeColorFilter);
+            }
           }
           else if (afterGenderSearch == "b"){
             let occupationFilter = genderFilter(peopleByGender);
             console.log(occupationFilter);
+            let finalEyeColor = prompt("Would you like to further your search by searching by eye color? Please enter 'yes' or 'no'.")
+            if (finalEyeColor == "yes"){
+              let eyeColorFinal = eyeColors(occupationFilter);
+              displayPerson(eyeColorFinal);
+            }
+            else if (finalEyeColor == "no"){
+              displayPeople(occupationFilter);
+            }
           }
         }
     default: alert("Please enter a valid option.")
