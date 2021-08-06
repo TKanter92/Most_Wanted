@@ -18,17 +18,44 @@ function app(people){
     let runSearchOpts = prompt("Please select an option to filter by; Type 1 for Eye Color, 2 for Occupation, or 3 for Gender.");
         if (runSearchOpts == "1"){
         let peopleByEyeColor = eyeColors(people)
-        console.log(peopleByEyeColor);
+        console.log(peopleByEyeColor)
+        let afterEyeColorSearch = prompt("Would you like to further your search by; a. Occupation, or b. Gender? Please enter the letter that matches the criteria that you wish to search by.")
+          if (afterEyeColorSearch == "a"){
+            let occupationFilter = filterJobs(peopleByEyeColor);
+            console.log(occupationFilter);
+          }
+          else if (afterEyeColorSearch == "b"){
+            let genderIdentFilter = filterGender(peopleByEyeColor);
+            console.log(genderIdentFilter);
+          }
         }
         else if (runSearchOpts == "2"){
         let peopleByOccupations = filterJobs(people)
         console.log(peopleByOccupations);
+        let afterJobSearch = prompt("Would you like to further your search by; a. Eye Color, or b. Gender? Please enter the letter that matches the criteria that you wish to search by.")
+          if (afterJobSearch == "a"){
+            let eyeColorFilter = eyeColors(peopleByOccupations);
+            console.log(eyeColorFilter);
+          }
+          else if (afterJobSearch == "b"){
+            let filterByGender = genderFilter(peopleByOccupations);
+            console.log(filterByGender);
+          }
         }
         else if (runSearchOpts == "3"){
         let peopleByGender = genderFilter(people)
         console.log(peopleByGender);
+        let afterGenderSearch = prompt("Would you like to further your search by; a. Eye Color or b. Occupation? Please enter the letter that matches the criteria that you wish to search by.")
+          if (afterGenderSearch == "a"){
+            let eyeColorFilter = eyeColors(peopleByGender);
+            console.log(eyeColorFilter);
+          }
+          else if (afterGenderSearch == "b"){
+            let occupationFilter = genderFilter(peopleByGender);
+            console.log(occupationFilter);
+          }
         }
-    default:
+    default: alert("Please enter a valid option.")
     app(people); // restart app
     break;
   }
